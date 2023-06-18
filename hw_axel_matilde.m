@@ -175,20 +175,6 @@ det1_usa_ciclo = [det1_gdp_pc_usa det1_I_usa det1_G_usa det1_tb_usa det1_gy_usa]
 det1_usa_y_c = [det1_gdp_pc_usa det1_C_usa];
 det1_usa_corr_ciclo= corrcoef(det1_usa_ciclo);
 det1_usa_corr_y_c= corrcoef(det1_usa_y_c);%consultar si debido al consumo debemos recortar la muestra
-%%%%%%%%%%%%%%%%%
-%4. Standard deviations
-%HP
-% LAMBDA=100
-% Nicaragua
-
-%for i = 1:6
-%fprintf('%5.2f \n ', eval(sprintf('std(hp_cycle_nic_%i)*100',i) ))
-%end
-
-hp = {hp_cycle_nic_1, hp_cycle_nic_2, hp_cycle_nic_3, hp_cycle_nic_4,hp_cycle_nic_5,hp_cycle_nic_6}
-hp_cycle_nic_std = cellfun(@std,hp)
-hp_nic_std = hp_cycle_nic_std'.*100
-ratio_x_y = hp_nic_std./std(hp_cycle_nic_1)
 
 %LAMBDA=6.25
 
@@ -230,3 +216,56 @@ results_correl(3,4)= det2_usa_corr_ciclo(2,1);%respecto a i
 results_correl(4,4)= det2_usa_corr_ciclo(3,1);%respecto a g
 results_correl(5,4)= det2_usa_corr_ciclo(4,1);%respecto a tb
 results_correl(6,4)= det2_usa_corr_ciclo(5,1);%respecto a g/y
+
+%Metodo HP lambda=100 - Nicaragua 
+results_correl(1,5)= hp100nic_corr_ciclo(1,1); %respecto a ella misma y_pc
+results_correl(2,5)= hp100nic_corr_y_c(2,1); %respecto a c
+results_correl(3,5)= hp100nic_corr_ciclo(2,1);%respecto a i
+results_correl(4,5)= hp100nic_corr_ciclo(3,1);%respecto a g
+results_correl(5,5)= hp100nic_corr_ciclo(4,1);%respecto a tb
+results_correl(6,5)= hp100nic_corr_ciclo(5,1);%respecto a g/y
+
+%Metodo HP lambda=100 - United States 
+results_correl(1,6)= hp100usa_corr_ciclo(1,1); %respecto a ella misma y_pc
+results_correl(2,6)= hp100usa_corr_y_c(2,1); %respecto a c
+results_correl(3,6)= hp100usa_corr_ciclo(2,1);%respecto a i
+results_correl(4,6)= hp100usa_corr_ciclo(3,1);%respecto a g
+results_correl(5,6)= hp100usa_corr_ciclo(4,1);%respecto a tb
+results_correl(6,6)= hp100usa_corr_ciclo(5,1);%respecto a g/y
+
+%Metodo HP lambda=6 - Nicaragua 
+results_correl(1,7)= hp6nic_corr_ciclo(1,1); %respecto a ella misma y_pc
+results_correl(2,7)= hp6nic_corr_y_c(2,1); %respecto a c
+results_correl(3,7)= hp6nic_corr_ciclo(2,1);%respecto a i
+results_correl(4,7)= hp6nic_corr_ciclo(3,1);%respecto a g
+results_correl(5,7)= hp6nic_corr_ciclo(4,1);%respecto a tb
+results_correl(6,7)= hp6nic_corr_ciclo(5,1);%respecto a g/y
+
+%Metodo HP lambda=6 - United States 
+results_correl(1,8)= hp6usa_corr_ciclo(1,1); %respecto a ella misma y_pc
+results_correl(2,8)= hp6usa_corr_y_c(2,1); %respecto a c
+results_correl(3,8)= hp6usa_corr_ciclo(2,1);%respecto a i
+results_correl(4,8)= hp6usa_corr_ciclo(3,1);%respecto a g
+results_correl(5,8)= hp6usa_corr_ciclo(4,1);%respecto a tb
+results_correl(6,8)= hp6usa_corr_ciclo(5,1);%respecto a g/y
+
+xlswrite('Resultados_correlation.xls', results_correl);
+
+%%%%%%%%%%%%%%%%%
+%4. Standard deviations
+%HP
+% LAMBDA=100
+% Nicaragua
+
+%for i = 1:6
+%fprintf('%5.2f \n ', eval(sprintf('std(hp_cycle_nic_%i)*100',i) ))
+%end
+
+hp = {hp_cycle_nic_1, hp_cycle_nic_2, hp_cycle_nic_3, hp_cycle_nic_4,hp_cycle_nic_5,hp_cycle_nic_6};
+hp_cycle_nic_std = cellfun(@std,hp);
+hp_nic_std = hp_cycle_nic_std'.*100;
+ratio_x_y = hp_nic_std./std(hp_cycle_nic_1);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%5.autocorrelation/persistence
+
