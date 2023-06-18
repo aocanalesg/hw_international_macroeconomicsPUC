@@ -14,8 +14,8 @@ clear all; close all; clc
 [data_usa, input.xlstext] = xlsread('data_usa.xlsx','Data');
 
 %transpose
-nic = data_nic.'
-usa = data_usa.'
+nic = data_nic.';
+usa = data_usa.';
 
 %%%%%%%%% NIC data %%%%%%%%%%%
 %Ratio series 
@@ -92,7 +92,7 @@ X_usa= X_usa_gdp.*GDP_pc_usa;
 % 1.log linear detrending
 %Nicaragua
 det1_gdp_pc_nic = detrend(log(GDP_pc_nic),1);
-det1_C_nic = detrend(log(C_nic),1);
+det1_C_nic = detrend(log(C_nic(35:62)),1);
 det1_I_nic = detrend(log(I_nic),1);
 det1_G_nic = detrend(log(G_nic),1);
 det1_tb_nic = detrend((X_nic-M_nic)./det1_gdp_pc_nic,1);
@@ -110,7 +110,7 @@ det1_gy_usa = detrend(log(G_usa)./log(GDP_pc_usa),1);
 % 2.log quadratic detrending
 %Nicaragua 
 det2_gdp_pc_nic = detrend(log(GDP_pc_nic),2);
-det2_C_nic = detrend(log(C_nic),2);
+det2_C_nic = detrend(log(C_nic(35:62)),2);
 det2_I_nic = detrend(log(I_nic),2);
 det2_G_nic = detrend(log(G_nic),2);
 det2_tb_nic = detrend((X_nic-M_nic)./det1_gdp_pc_nic,2);
@@ -127,28 +127,70 @@ det2_gy_usa = detrend(log(G_usa)./log(GDP_pc_usa),2);
 %%%%%%%%%%%%%%%%%%%%%%
 % 3. Correlatios per country and detrending method
 %Nicaragua
+
 %HP lambda = 100
-nic_ciclo = [hp_cycle_nic_1 hp_cycle_nic_3 hp_cycle_nic_4 hp_cycle_nic_5 hp_cycle_nic_6];
-nic_y_c = [hp_cycle_nic_1[35:62] hp_cycle_nic_2[35:62]];
-nic_corr_ciclo= corrcoef(nic_ciclo);
+hp100nic_ciclo = [hp_cycle_nic_1 hp_cycle_nic_3 hp_cycle_nic_4 hp_cycle_nic_5 hp_cycle_nic_6];
+hp100nic_y_c = [hp_cycle_nic_1(35:62) hp_cycle_nic_2];
+hp100nic_corr_ciclo= corrcoef(hp100nic_ciclo);
+hp100nic_corr_y_c= corrcoef(hp100nic_y_c);%consultar si debido al consumo debemos recortar la muestra
 
 %HP lambda = 6.25
+hp6nic_ciclo = [hp_cycle_nic_7 hp_cycle_nic_9 hp_cycle_nic_10 hp_cycle_nic_11 hp_cycle_nic_12];
+hp6nic_y_c = [hp_cycle_nic_7(35:62) hp_cycle_nic_8];
+hp6nic_corr_ciclo= corrcoef(hp6nic_ciclo);
+hp6nic_corr_y_c= corrcoef(hp6nic_y_c);%consultar si debido al consumo debemos recortar la muestra
+
 %log-linear detrending 
+det1_nic_ciclo = [det1_gdp_pc_nic det1_I_nic det1_G_nic  det1_tb_nic det1_gy_nic];
+det1_nic_y_c = [det1_gdp_pc_nic(35:62) det1_C_nic];
+det1_nic_corr_ciclo= corrcoef(det1_nic_ciclo);
+det1_nic_corr_y_c= corrcoef(det1_nic_y_c);%consultar si debido al consumo debemos recortar la muestra
+
 %log-quadratic detrending
+det2_nic_ciclo = [det2_gdp_pc_nic det2_I_nic det2_G_nic det2_G_nic det2_tb_nic det2_gy_nic];
+det2_nic_y_c = [det2_gdp_pc_nic(35:62) det2_C_nic];
+det2_nic_corr_ciclo= corrcoef(det2_nic_ciclo);
+det2_nic_corr_y_c= corrcoef(det2_nic_y_c);%consultar si debido al consumo debemos recortar la muestra
 
-%A = [x y 2*y+3];
-%R = corrcoef(A)
+%USA
 
+%HP lambda = 100
+hp100usa_ciclo = [hp_cycle_usa_1 hp_cycle_usa_3 hp_cycle_usa_4 hp_cycle_usa_5 hp_cycle_usa_6];
+hp100usa_y_c = [hp_cycle_usa_1 hp_cycle_usa_2];
+hp100usa_corr_ciclo= corrcoef(hp100usa_ciclo);
+hp100usa_corr_y_c= corrcoef(hp100usa_y_c);%consultar si debido al consumo debemos recortar la muestra
 
+%HP lambda = 6.25
+hp6usa_ciclo = [hp_cycle_usa_7 hp_cycle_usa_9 hp_cycle_usa_10 hp_cycle_usa_11 hp_cycle_usa_12];
+hp6usa_y_c = [hp_cycle_usa_7 hp_cycle_usa_8];
+hp6usa_corr_ciclo= corrcoef(hp6usa_ciclo);
+hp6usa_corr_y_c= corrcoef(hp6usa_y_c);%consultar si debido al consumo debemos recortar la muestra
 
+%log-linear detrending 
+det1_usa_ciclo = [det1_gdp_pc_usa det1_I_usa det1_G_usa det1_tb_usa det1_gy_usa];
+det1_usa_y_c = [det1_gdp_pc_usa det1_C_usa];
+det1_usa_corr_ciclo= corrcoef(det1_usa_ciclo);
+det1_usa_corr_y_c= corrcoef(det1_usa_y_c);%consultar si debido al consumo debemos recortar la muestra
 
+%log-quadratic detrending
+det2_usa_ciclo = [det2_gdp_pc_usa det2_I_usa det2_G_usa det2_tb_usa det2_gy_usa];
+det2_usa_y_c = [det2_gdp_pc_usa det2_C_usa];
+det2_usa_corr_ciclo= corrcoef(det2_usa_ciclo);
+det2_usa_corr_y_c= corrcoef(det2_usa_y_c);%consultar si debido al consumo debemos recortar la muestra
 
+%%% Data Collection of correlation cycles by country and detrending methods
+%Metodo detrending lineal - Nicaragua
+results_correl_corr(1,1)= det1_nic_corr_ciclo(1,1); %respecto a ella misma y_pc
+results_correl(2,1)= det1_nic_corr_y_c(2,1); %respecto a c
+results_correl(3,1)= det1_nic_corr_ciclo(2,1);%respecto a i
+results_correl(4,1)= det1_nic_corr_ciclo(3,1);%respecto a g
+results_correl(5,1)= det1_nic_corr_ciclo(4,1);%respecto a tb
+results_correl(6,1)= det1_nic_corr_ciclo(5,1);%respecto a g/y
 
-%nic
-%LAMBDA=100
-%for i=1:6
-%fprintf('%5.2f \n ',  std(cycle_nic_i)*100)
-%end
-
-%LAMBDA=6.25
-
+%Metodo detrending lineal - USA
+results_correl(1,2)= det1_usa_corr_ciclo(1,1);% respecto a ella misma y_pc
+results_correl(2,2)= det1_usa_corr_y_c(2,1); %respecto a c
+results_correl(3,2)= det1_usa_corr_ciclo(2,1);%respecto a i
+results_correl(4,2)= det1_usa_corr_ciclo(3,1);%respecto a g
+results_correl(5,2)= det1_usa_corr_ciclo(4,1);%respecto a tb
+results_correl(6,2)= det1_usa_corr_ciclo(5,1);%respecto a g/y
