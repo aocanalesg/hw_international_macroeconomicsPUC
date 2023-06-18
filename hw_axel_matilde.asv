@@ -148,17 +148,15 @@ nic_corr_ciclo= corrcoef(nic_ciclo);
 %HP
 % LAMBDA=100
 % Nicaragua
+for i = 1:6
+fprintf('%5.2f \n ', std(strcat('hp_cycle_nic_',num2str(i))*100))
+end
 
-%for i = 1:6
-%fprintf('%5.2f \n ', eval(sprintf('std(hp_cycle_nic_%i)*100',i) ))
-%end
+for i = 1:6
+fprintf('%5.2f \n ', std(strcat('hp_cycle_nic_',num2str(i))*100))
+end
 
 
-
-hp = {hp_cycle_nic_1, hp_cycle_nic_2, hp_cycle_nic_3, hp_cycle_nic_4,hp_cycle_nic_5,hp_cycle_nic_6}
-hp_cycle_nic_std = cellfun(@std,hp)
-hp_nic_std = hp_cycle_nic_std'.*100
-ratio_x_y = hp_nic_std./std(hp_cycle_nic_1)
 
 %LAMBDA=6.25
 
