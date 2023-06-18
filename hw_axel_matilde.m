@@ -200,7 +200,7 @@ det2_usa_corr_y_c= corrcoef(det2_usa_y_c);%consultar si debido al consumo debemo
 
 %%% Data Collection of correlation cycles by country and detrending methods
 %Metodo detrending lineal - Nicaragua
-results_correl_corr(1,1)= det1_nic_corr_ciclo(1,1); %respecto a ella misma y_pc
+results_correl(1,1)= det1_nic_corr_ciclo(1,1); %respecto a ella misma y_pc
 results_correl(2,1)= det1_nic_corr_y_c(2,1); %respecto a c
 results_correl(3,1)= det1_nic_corr_ciclo(2,1);%respecto a i
 results_correl(4,1)= det1_nic_corr_ciclo(3,1);%respecto a g
@@ -214,3 +214,19 @@ results_correl(3,2)= det1_usa_corr_ciclo(2,1);%respecto a i
 results_correl(4,2)= det1_usa_corr_ciclo(3,1);%respecto a g
 results_correl(5,2)= det1_usa_corr_ciclo(4,1);%respecto a tb
 results_correl(6,2)= det1_usa_corr_ciclo(5,1);%respecto a g/y
+
+%Metodo detrending cuadratico - Nicaragua
+results_correl(1,3)= det2_nic_corr_ciclo(1,1); %respecto a ella misma y_pc
+results_correl(2,3)= det2_nic_corr_y_c(2,1); %respecto a c
+results_correl(3,3)= det2_nic_corr_ciclo(2,1);%respecto a i
+results_correl(4,3)= det2_nic_corr_ciclo(3,1);%respecto a g
+results_correl(5,3)= det2_nic_corr_ciclo(4,1);%respecto a tb
+results_correl(6,3)= det2_nic_corr_ciclo(5,1);%respecto a g/y
+
+%Metodo detrending cuadratico - USA
+results_correl(1,4)= det2_usa_corr_ciclo(1,1); %respecto a ella misma y_pc
+results_correl(2,4)= det2_usa_corr_y_c(2,1); %respecto a c
+results_correl(3,4)= det2_usa_corr_ciclo(2,1);%respecto a i
+results_correl(4,4)= det2_usa_corr_ciclo(3,1);%respecto a g
+results_correl(5,4)= det2_usa_corr_ciclo(4,1);%respecto a tb
+results_correl(6,4)= det2_usa_corr_ciclo(5,1);%respecto a g/y
