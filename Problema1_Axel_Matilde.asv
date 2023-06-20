@@ -309,15 +309,15 @@ hp_cycle_nic_100_std = (cellfun(@std,hp_nic_100)')./std(hp_cycle_nic_1); %Genera
 %end
 
 %Metodo HP lambda=100 - United States 
-hp_usa_100 = {hp_cycle_usa_1, hp_cycle_usa_2, hp_cycle_usa_4, hp_cycle_usa_3,hp_cycle_usa_x_1,hp_cycle_usa_m_1,hp_cycle_usa_5}; %declare needed variables
+hp_usa_100 = {hp_cycle_usa_1, hp_cycle_usa_2, hp_cycle_usa_, hp_cycle_usa_4,hp_cycle_usa_5,hp_cycle_usa_6}; %declare needed variables
 hp_cycle_usa_100_std = (cellfun(@std,hp_usa_100)')./std(hp_cycle_usa_1); %Generates the standard deviation of each variable of the column vector hp 
 
 %Metodo HP lambda=6 - Nicaragua 
-hp_nic_6 = {hp_cycle_nic_7, hp_cycle_nic_8, hp_cycle_nic_10, hp_cycle_nic_9,hp_cycle_nic_x_2,hp_cycle_nic_m_2,hp_cycle_nic_11}; %declare needed variables
+hp_nic_6 = {hp_cycle_nic_7, hp_cycle_nic_8, hp_cycle_nic_9, hp_cycle_nic_10,hp_cycle_nic_11,hp_cycle_nic_12}; %declare needed variables
 hp_cycle_nic_6_std = (cellfun(@std,hp_nic_6)')./std(hp_cycle_nic_7); %Generates the standard deviation of each variable of the column vector hp 
 
 %Metodo HP lambda=6 - United States 
-hp_usa_6 = {hp_cycle_usa_7, hp_cycle_usa_8, hp_cycle_usa_10, hp_cycle_usa_9,hp_cycle_usa_x_2,hp_cycle_usa_m_2,hp_cycle_usa_11}; %declare needed variables
+hp_usa_6 = {hp_cycle_usa_7, hp_cycle_usa_8, hp_cycle_usa_9, hp_cycle_usa_10,hp_cycle_usa_11,hp_cycle_usa_12}; %declare needed variables
 hp_cycle_usa_6_std = (cellfun(@std,hp_usa_6)')./std(hp_cycle_usa_7); %Generates the standard deviation of each variable of the column vector hp 
 
 %Compilation
