@@ -249,7 +249,12 @@ results_correl(4,8)= hp6usa_corr_ciclo(3,1);%respecto a g
 results_correl(5,8)= hp6usa_corr_ciclo(4,1);%respecto a tb
 results_correl(6,8)= hp6usa_corr_ciclo(5,1);%respecto a g/y
 
-xlswrite('Resultados_correlation.xls', results_correl);
+rowNames = {'y','c','i','g','tb','g/y'};
+colNames = {'Linear Nic','Linear USA','Quadratic Nic','Quadratic USA', 'HP con λ = 100 Nic','HP con λ = 100 USA','HP con λ = 6.25 Nic','HP con λ = 6.25 USA'};
+results_correl = array2table(results_correl,'RowNames',rowNames,'VariableNames',colNames);
+filename = 'Resultados_correlation.xlsx';
+writetable(results_correl,filename);
+
 
 %%%%%%%%%%%%%%%%%
 %4. Standard deviations
@@ -390,8 +395,15 @@ results_auto(3,8)=acf_hp6_cycle_usa_9(2,1);
 results_auto(4,8)=acf_hp6_cycle_usa_10(2,1);
 results_auto(5,8)=acf_hp6_cycle_usa_11(2,1);
 results_auto(6,8)=acf_hp6_cycle_usa_12(2,1);
+
+
 %Export to excel autocorrelation table 
-xlswrite('Resultados_autocorrelation.xls', results_auto);
+rowNames1 = {'y','c','i','g','tb','g/y'};
+colNames1 = {'Linear Nic','Linear USA','Quadratic Nic','Quadratic USA', 'HP con λ = 100 Nic','HP con λ = 100 USA','HP con λ = 6.25 Nic','HP con λ = 6.25 USA'};
+results_auto = array2table(results_auto,'RowNames',rowNames1,'VariableNames',colNames1);
+filename = 'Resultados_auto.xlsx';
+writetable(results_auto,filename);
+
 
 %%%%%%% 1.B %%%%%%%%%%%
 %%%%% Graph showing the natural logarithm of real per capita GDP and the trend, one panel per trend.
