@@ -321,23 +321,18 @@ hp_usa_6 = {hp_cycle_usa_7, hp_cycle_usa_8, hp_cycle_usa_10, hp_cycle_usa_9,hp_c
 hp_cycle_usa_6_std = (cellfun(@std,hp_usa_6)')./std(hp_cycle_usa_7); %Generates the standard deviation of each variable of the column vector hp 
 
 %Compilation
+
 results_std = [det1_cycle_nic_std, det1_cycle_usa_std, det2_cycle_nic_std, det2_cycle_usa_std, hp_cycle_nic_100_std, hp_cycle_usa_100_std, hp_cycle_nic_6_std, hp_cycle_usa_6_std]
-%results_std(,1) = det1_cycle_nic_std
-%results_std(,2) = det1_cycle_usa_std
-%results_std(,3) = det2_cycle_nic_std
-%results_std(,4) = det2_cycle_usa_std 
-%results_std(,5) = hp_cycle_nic_100_std
-%results_std(,6) = hp_cycle_usa_100_std 
-%results_std(,7) = hp_cycle_nic_6_std 
-%results_std(,8) = hp_cycle_usa_6_std
+results_std(1,:) = [std(det1_gdp_pc_nic), std(det1_gdp_pc_usa), std(det2_gdp_pc_nic), std(det2_gdp_pc_usa), std(hp_cycle_nic_1), std(hp_cycle_usa_1), std(hp_cycle_nic_2), std(hp_cycle_usa_2)]%primera fila solo incluye la desviacion por si sola
+
 
 %Export to excel
 
-%rowNames1 = {'y','c','i','g','tb','g/y'};
-%colNames1 = {'Linear Nic','Linear USA','Quadratic Nic','Quadratic USA', 'HP con λ = 100 Nic','HP con λ = 100 USA','HP con λ = 6.25 Nic','HP con λ = 6.25 USA'};
-%results_auto = array2table(results_auto,'RowNames',rowNames1,'VariableNames',colNames1);
-%filename = 'Resultados_auto.xlsx';
-%writetable(results_auto,filename);
+rowNames1_std = {'s_y','s_c/s_y','s_g/s_y','s_i/s_y','s_x/s_y','s_m/s_y', 's_(g/y)/s_y'};%"s" represents standard deviation
+colNames1_std = {'Linear Nic','Linear USA','Quadratic Nic','Quadratic USA', 'HP con λ = 100 Nic','HP con λ = 100 USA','HP con λ = 6.25 Nic','HP con λ = 6.25 USA'};
+results_std = array2table(results_std,'RowNames',rowNames1_std,'VariableNames',colNames1_std);
+filename = 'Resultados_std.xlsx';
+writetable(results_std,filename);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %5.autocorrelation/persistence
