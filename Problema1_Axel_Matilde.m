@@ -324,15 +324,16 @@ hp_cycle_usa_6_std = (cellfun(@std,hp_usa_6)')./std(hp_cycle_usa_7); %Generates 
 
 results_std = [det1_cycle_nic_std, det1_cycle_usa_std, det2_cycle_nic_std, det2_cycle_usa_std, hp_cycle_nic_100_std, hp_cycle_usa_100_std, hp_cycle_nic_6_std, hp_cycle_usa_6_std]
 results_std(1,:) = [std(det1_gdp_pc_nic), std(det1_gdp_pc_usa), std(det2_gdp_pc_nic), std(det2_gdp_pc_usa), std(hp_cycle_nic_1), std(hp_cycle_usa_1), std(hp_cycle_nic_2), std(hp_cycle_usa_2)]%primera fila solo incluye la desviacion por si sola
-
+%results_std_round=varfun(@(x)round(x,2), results_std);
 
 %Export to excel
 
-rowNames1_std = {'s_y','s_c/s_y','s_g/s_y','s_i/s_y','s_x/s_y','s_m/s_y', 's_(g/y)/s_y'};%"s" represents standard deviation
+rowNames1_std = {'s_y','s_c/s_y','s_g/s_y','s_i/s_y','s_x/s_y','s_m/s_y', 's_(tb)/s_y'};%"s" represents standard deviation
 colNames1_std = {'Linear Nic','Linear USA','Quadratic Nic','Quadratic USA', 'HP con λ = 100 Nic','HP con λ = 100 USA','HP con λ = 6.25 Nic','HP con λ = 6.25 USA'};
 results_std = array2table(results_std,'RowNames',rowNames1_std,'VariableNames',colNames1_std);
+results_std_round=varfun(@(x)round(x,2), results_std) %round to the nearest hundredth
 filename = 'Resultados_std.xlsx';
-writetable(results_std,filename);
+writetable(results_std_round,filename);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %5.autocorrelation/persistence
@@ -478,7 +479,7 @@ x = 1960:2021;
 plot(x,log(GDP_pc_nic),x,trend_y_pc_nic,'-');
 xlabel('Periodo de Estudio');
 ylabel('Logaritmo');
-legend('PIB per capita a precios contante ','Tendencia');
+legend('PIB per cápita a precios contantes ','Tendencia');
 title('HP filtering with λ = 100','FontSize', 12);
 
 subplot(2,2,2);
@@ -499,7 +500,7 @@ trend2_gdp_pc_nic = log(GDP_pc_nic) - det2_gdp_pc_nic;
 plot(x,log(GDP_pc_nic),x,trend2_gdp_pc_nic);
 xlabel('Periodo de Estudio');
 ylabel('Logaritmo');
-title('Log-quadratic detrending;')
+title('Log-quadratic detrending')
 
 %%%%%% USA
 %Following variables are created for the entire sample
@@ -509,18 +510,20 @@ GDP_pc_usa1 = usa(:,6);
 det1_gdp_pc_usa_g = detrend(log(GDP_pc_usa1),1);
 det2_gdp_pc_usa_g = detrend(log(GDP_pc_usa1),2);
 
+
+
 figure(2)
 subplot(2,2,1);
 x = 1965:2021;
 plot(x,log(GDP_pc_usa1),x,graph_trend_y_pc_usa,'-');
-xlabel('Periodo de Estudio');
+xlabel('Periodo de estudio');
 ylabel('Logaritmo');
-legend('PIB per capita a precios contante ','Tendencia');
+legend('PIB per cápita a precios contante ','Tendencia');
 title('HP filtering with λ = 100','FontSize', 12);
 
 subplot(2,2,2);
 plot(x,log(GDP_pc_usa1),x,graph6_trend_y_pc_usa);
-xlabel('Periodo de Estudio');
+xlabel('Periodo de estudio');
 ylabel('Logaritmo');
 title('HP filtering with λ = 6.25');
 
@@ -528,14 +531,14 @@ subplot(2,2,3);
 GDP_pc_usa1 = usa(:,6); 
 trend1_gdp_pc_usa = log(GDP_pc_usa1) - det1_gdp_pc_usa_g;
 plot(x,log(GDP_pc_usa1),x,trend1_gdp_pc_usa);
-xlabel('Periodo de Estudio');
+xlabel('Periodo de estudio');
 ylabel('Logaritmo');
 title('Log-linear detrending')
 
 subplot(2,2,4);
 trend2_gdp_pc_usa = log(GDP_pc_usa1) - det2_gdp_pc_usa_g;
 plot(x,log(GDP_pc_usa1),x,trend2_gdp_pc_usa);
-xlabel('Periodo de Estudio');
+xlabel('Periodo de estudio');
 ylabel('Logaritmo');
 title('Log-quadratic detrending;')
 
