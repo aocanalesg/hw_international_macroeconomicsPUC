@@ -1,4 +1,4 @@
-
+%EDEIR model
 
 %%%% Especificacion de productividad AR(2)
 
