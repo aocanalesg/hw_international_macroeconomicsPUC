@@ -477,7 +477,7 @@ writetable(results_auto,filename);
 fig(1) = figure('name', 'Nic','units','inch','position',[0,0,11,7.5]);
 
 % add legend
-
+legend('Location','bestoutside','orientation','horizontal','PIB per cápita a precios contantes ','Tendencia');
 
 subplot(2,2,1);
 x = 1960:2021;
@@ -485,8 +485,8 @@ plot(x,log(GDP_pc_nic),x,trend_y_pc_nic,'-');
 xlabel('Periodo de Estudio');
 ylabel('Logaritmo');
 xlim([1960 2021]);
-legend('PIB per cápita a precios contantes ','Tendencia');
-legend('boxoff');
+%legend('PIB per cápita a precios contantes ','Tendencia');
+%legend('boxoff');
 title('HP filtering with λ = 100','FontSize', 12);
 
 
