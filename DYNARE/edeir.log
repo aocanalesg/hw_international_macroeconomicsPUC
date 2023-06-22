@@ -1,0 +1,6 @@
+Starting Dynare (version 5.4).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ...
+ERROR: edeir.mod: line 75, cols 14-18: Unknown symbol: rho_0
+ERROR: edeir.mod: line 75, cols 33-37: Unknown symbol: rho_1
+

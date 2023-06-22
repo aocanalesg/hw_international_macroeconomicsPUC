@@ -12,14 +12,14 @@ parameters alpha beta delta sigma rho sigmae ;
     beta    = 0.98;
     delta   = 0.025;
     sigma   = 1;
-    rho     = 0.5;
+    rho     = -0.43;
     sigmae  = 0.01;
-
+    rho_0  = 1.42;
 model;
     c^(-sigma) = beta * c(+1)^(-sigma) *(alpha*A(+1)*k^(alpha-1)+1-delta);
     c+k = y+(1-delta)*k(-1);
     y=A*k(-1)^alpha;
-    log(A) = rho*log(A(-1)) + sigmae*e;
+    log(A(+1)) = rho_0*log(A)+ rho*log(A(-1))+ e; %%que nuevo parametro le asignamos
 end;
 
 initval;

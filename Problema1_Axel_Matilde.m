@@ -584,10 +584,34 @@ title('PIB real de Nicaragua 1960-2021');
 
 fig(4)= figure('name', 'USA_REAL_GDP','units','inch','position',[0,0,11,7.5]);
 plot([1965:2021], usa(:,8), 'LineWidth',1.5);
+xregion(1973,1981);
+xregion(1990,2000);
+xregion(2008,2019);
 xlabel('Año');
 ylabel('Real GDP');
 xlim([1965 2021]);
 title('PIB real de Estados Unidos 1965-2021');
+
+%growth rates
+growth_rate_nic = (GDP_nic_constant(2:57)./GDP_nic_constant(1:56)-1)*100
+growth_rate_usa = (GDP_usa_constant(2:52)./GDP_usa_constant(1:51)-1)*100
+
+
+%tabla que resume duracion y magnitud de expansiones y recesiones en promedio de los ciclos para nicaragua
+%en la primera columna y estados unidos en la segunda
+duracion_magn(1,1) = mean([abs(1960-1977)+1,abs(1977-1983)+1, abs(1983-2008)+1, abs(2008-2017)+1, abs(2021-2017)+1])
+duracion_magn(2,1)  = mean(growth_rate_nic(growth_rate_nic>0))
+duracion_magn(3,1)  = mean(growth_rate_nic(growth_rate_nic<0))
+duracion_magn(1,2)  = mean([abs(1965-1973)+1,abs(1973-1981)+1,abs(1990-2000)+1,abs(2008-2019)+1, abs(2021-2019)+1])
+duracion_magn(2,2)  = mean(growth_rate_usa(growth_rate_usa>0))
+duracion_magn(3,2)  = mean(growth_rate_usa(growth_rate_usa<0))
+
+rowNames1_dur = {'Duracion promedio', 'Expansiones', 'Recesiones'};%"s" represents standard deviation
+colNames1_dur = {'Nic.','EE.UU.'};
+results_dur = array2table(duracion_magn,'RowNames',rowNames1_dur,'VariableNames',colNames1_dur);
+results_dur_round=varfun(@(x)round(x,2), results_dur) %round to the nearest hundredth
+filename = 'Resultados_dur_mgn.xlsx';
+writetable(results_dur_round,filename);
 
 %export 
 exportgraphics(figure(3),'picture3.png','Resolution',700)
