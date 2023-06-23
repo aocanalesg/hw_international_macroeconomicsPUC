@@ -33,8 +33,9 @@ var_list=M_.endo_names';
  else
 %Colecting moments of the model 
     model_moments(1,1) = sqrt(oo_.var(1,1));      %we get sd of y in oo_.var oo_.var es una matriz de varianzas y covarianzas
-    model_moments(2,1) = oo_.contemporaneous_correlation(1,2); 
-    %we get the corr of y and c in oo_.contemporaneous_correlation 
+    model_moments(2,1) = oo_.autocorr{1,1};   %we get the autocorr of y in oo_.autocorr{1,1}
+    model_moments(3,1) = sqrt(oo_.var(3,3));  %we get sd of i in oo_.var oo_.var es una matriz de varianzas y covarianzas
+    model_moments(3,1) = sqrt(oo_.var(5,5));   %we get sd of tby in oo_.var oo_.var es una matriz de varianzas y covarianzas
 
 %Defining z
     z = model_moments-target;

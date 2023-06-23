@@ -9,7 +9,7 @@ predetermined_variables k;
 
 varexo eps;
 
-parameters sigma delta rstar alpha omega dbar psi phi rho0 rho1 etatilde
+parameters sigma delta rstar alpha omega dbar psi phi rho etatilde
            beta sigma_eps;
 
 sigma   = 2;                 %MENDOZA
@@ -18,14 +18,17 @@ rstar   = 0.04;              %long-run interest rate
 alpha   = 0.32;              %F(k,h) = k^ALFA h^(1-ALFA)
 omega   = 1.455;             %Frisch ela st. from Mendoza 1991
 dbar    = 0.7442;            %debt
+psi     = 0.000742;          %debt elasticity of interest rate 
+phi     = 0.028;             %capital adjustment cost
+rho   = 1.42;              %persistence of TFP shock       
+etatilde= 0.0129;            %sd of innovation to TFP shock
 beta    = 1/(1+rstar);
 sigma_eps = 3.08;
 
 %parameters to be matched
-psi     = 0.000742;          %debt elasticity of interest rate 
-phi     = 0.028;             %capital adjustment cost
-rho   = 1.42;              %persistence of TFP shock               
-etatilde= 0.0129;            %sd of innovation to TFP shock
+
+
+        
 
 
 model;
@@ -75,7 +78,7 @@ model;
     log(cay) = log(ca)/y;
 
 % Productivy
-    log(A) = rho0*log(A(-1)) + rho1*log(A(-2))+ etatilde*eps;
+    log(A(+1)) = rho*log(A)+ etatilde*eps;
     
 end;
 
@@ -122,7 +125,7 @@ nit  = 1000;                      %Number of iterations
 
 target=[3.0406; 0.9960; 5.6157; 0.4135];%los parametros que yo quiero machear OJO AqUI
 
-[fhat,x_opt_hat] = csminwel(@moment_objective,x_start,H0,[],crit,nit,target,oo_, M_,options_); %x_opt_hat sera el nuevo vector de parametros calibrados
+[fhat,x_opt_hat] = csminwel(@prob5moment_objective,x_start,H0,[],crit,nit,target,oo_, M_,options_); %x_opt_hat sera el nuevo vector de parametros calibrados
 
 set_param_value('rho',x_opt_hat(1)); %we get the new sigmae which minimize the distance D
 set_param_value('etatilde',x_opt_hat(2));    %we get the new rho which minimize the distance D
