@@ -280,6 +280,7 @@ set_param_value('rho',x_opt_hat(1));
 set_param_value('etatilde',x_opt_hat(2));    
 set_param_value('phi',x_opt_hat(3)); 
 set_param_value('psi',x_opt_hat(4)); 
+x_opt_hat
 options_.noprint=0;                     
 options_.irf = 20;
 options_.loglinear = true;

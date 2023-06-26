@@ -1068,6 +1068,11 @@ ih =
 Improvement on iteration 19 =        0.000000000
 improvement < crit termination
 
+x_opt_hat =
+
+    1.0104    0.4986    0.0280    0.0007
+
+
 MODEL SUMMARY
 
   Number of variables:         15
@@ -1140,4 +1145,4 @@ log(cay)    -0.0125  -0.0068  -0.0041  -0.0027  -0.0021
 log(la)      0.9967   0.9935   0.9902   0.9869   0.9837
 log(Uc)      0.9967   0.9935   0.9902   0.9869   0.9837
 log(Uh)      0.9838   0.9805   0.9773   0.9741   0.9709
-Total computing time : 0h00m36s
+Total computing time : 0h00m44s

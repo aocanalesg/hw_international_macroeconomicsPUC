@@ -27,10 +27,6 @@ sigma_eps = 3.08;
 
 %parameters to be matched
 
-
-        
-
-
 model;
 
 % FOC of d (Eq. 4.7)
@@ -132,7 +128,27 @@ set_param_value('etatilde',x_opt_hat(2));    %we get the new rho which minimize 
 set_param_value('phi',x_opt_hat(3)); %we get the new phi which minimize the distance D
 set_param_value('psi',x_opt_hat(4)); %we get the new psi which minimize the distance D
 
+%El orden del vector fila [rho,etatilde,phi,psi]
+x_opt_hat
+
 options_.noprint=0;                     %print the results
 stoch_simul(order=1,loglinear,irf=20);
 
+%%%%%%%%%%crear tabla inciso b
+%%%%%% std. dev
+prob5_incb(:,1) = [oo_.var{1,1}(1,1) oo_.var{1,1}(2,2) oo_.var{1,1}(3,3)  oo_.var{1,1}(4,4) oo_.var{1,1}(9,9) oo_.var{1,1}(12,12)]';
 
+%%%%% autocorrelacion
+prob5_incb(1,2) = oo_.autocorr{1,1}(1,1);%y
+prob5_incb(2,2) = oo_.autocorr{1,1}(2,2);%c
+prob5_incb(3,2) = oo_.autocorr{1,1}(3,3);%i
+prob5_incb(4,2) = oo_.autocorr{1,1}(4,4);%h
+prob5_incb(5,2) = oo_.autocorr{1,1}(9,9);%tby
+prob5_incb(6,2) = oo_.autocorr{1,1}(12,12);%cay
+%%%% correlacion con el producto
+prob5_incb(1,3) = oo_.contemporaneous_correlation{1,1}(1,1);%y
+prob5_incb(2,3) = oo_.contemporaneous_correlation{1,1}(2,1);%c
+prob5_incb(3,3) = oo_.contemporaneous_correlation{1,1}(3,1);%i
+prob5_incb(4,3) = oo_.contemporaneous_correlation{1,1}(4,1);%h
+prob5_incb(5,3) = oo_.contemporaneuos_correlation{1,1}(9,1);%tby
+prob5_incb(6,3) = oo_.contemporaneuos_correlation{1,1}(12,1);%cay
