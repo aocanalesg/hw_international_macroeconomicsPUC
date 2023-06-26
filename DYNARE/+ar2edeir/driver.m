@@ -14,7 +14,7 @@ tic0 = tic;
 % Define global variables.
 global M_ options_ oo_ estim_params_ bayestopt_ dataset_ dataset_info estimation_info ys0_ ex0_
 options_ = [];
-M_.fname = 'ar2edeir';
+M_.fname = 'AR2edeir';
 M_.dynare_version = '5.4';
 oo_.dynare_version = '5.4';
 options_.dynare_version = '5.4';
@@ -113,9 +113,9 @@ M_.param_names_long(9) = {'rho0'};
 M_.param_names(10) = {'rho1'};
 M_.param_names_tex(10) = {'rho1'};
 M_.param_names_long(10) = {'rho1'};
-M_.param_names(11) = {'etatilde'};
-M_.param_names_tex(11) = {'etatilde'};
-M_.param_names_long(11) = {'etatilde'};
+M_.param_names(11) = {'sigmae'};
+M_.param_names_tex(11) = {'sigmae'};
+M_.param_names_long(11) = {'sigmae'};
 M_.param_names(12) = {'beta'};
 M_.param_names_tex(12) = {'beta'};
 M_.param_names_long(12) = {'beta'};
@@ -262,10 +262,10 @@ rho0 = M_.params(9);
 M_.params(10) = (-0.43);
 rho1 = M_.params(10);
 M_.params(11) = 0.0129;
-etatilde = M_.params(11);
+sigmae = M_.params(11);
 M_.params(12) = 1/(1+M_.params(3));
 beta = M_.params(12);
-M_.params(13) = 3.08;
+M_.params(13) = 1;
 sigma_eps = M_.params(13);
 steady;
 %
@@ -279,6 +279,23 @@ options_.loglinear = true;
 options_.order = 1;
 var_list_ = {'y';'c';'i';'h';'tby';'cay'};
 [info, oo_, options_, M_] = stoch_simul(M_, options_, oo_, var_list_);
+x_start=[sigmae]; 
+options_.nofunctions=1;
+options_.nograph=1;
+options_.verbosity=0;
+options_.noprint=1;     
+H0   = 0.05*eye(length(x_start)); 
+crit = 1e-8;                      
+nit  = 1000;                      
+target=[3.08];
+[fhat,x_opt_hat] = csminwel(@ar2moment_objective,x_start,H0,[],crit,nit,target,oo_, M_,options_); 
+set_param_value('sigmae',x_opt_hat(1));    
+options_.noprint=0;                     
+options_.irf = 20;
+options_.loglinear = true;
+options_.order = 1;
+var_list_ = {};
+[info, oo_, options_, M_] = stoch_simul(M_, options_, oo_, var_list_);
 
 
 oo_.time = toc(tic0);
@@ -286,24 +303,24 @@ disp(['Total computing time : ' dynsec2hms(oo_.time) ]);
 if ~exist([M_.dname filesep 'Output'],'dir')
     mkdir(M_.dname,'Output');
 end
-save([M_.dname filesep 'Output' filesep 'ar2edeir_results.mat'], 'oo_', 'M_', 'options_');
+save([M_.dname filesep 'Output' filesep 'AR2edeir_results.mat'], 'oo_', 'M_', 'options_');
 if exist('estim_params_', 'var') == 1
-  save([M_.dname filesep 'Output' filesep 'ar2edeir_results.mat'], 'estim_params_', '-append');
+  save([M_.dname filesep 'Output' filesep 'AR2edeir_results.mat'], 'estim_params_', '-append');
 end
 if exist('bayestopt_', 'var') == 1
-  save([M_.dname filesep 'Output' filesep 'ar2edeir_results.mat'], 'bayestopt_', '-append');
+  save([M_.dname filesep 'Output' filesep 'AR2edeir_results.mat'], 'bayestopt_', '-append');
 end
 if exist('dataset_', 'var') == 1
-  save([M_.dname filesep 'Output' filesep 'ar2edeir_results.mat'], 'dataset_', '-append');
+  save([M_.dname filesep 'Output' filesep 'AR2edeir_results.mat'], 'dataset_', '-append');
 end
 if exist('estimation_info', 'var') == 1
-  save([M_.dname filesep 'Output' filesep 'ar2edeir_results.mat'], 'estimation_info', '-append');
+  save([M_.dname filesep 'Output' filesep 'AR2edeir_results.mat'], 'estimation_info', '-append');
 end
 if exist('dataset_info', 'var') == 1
-  save([M_.dname filesep 'Output' filesep 'ar2edeir_results.mat'], 'dataset_info', '-append');
+  save([M_.dname filesep 'Output' filesep 'AR2edeir_results.mat'], 'dataset_info', '-append');
 end
 if exist('oo_recursive_', 'var') == 1
-  save([M_.dname filesep 'Output' filesep 'ar2edeir_results.mat'], 'oo_recursive_', '-append');
+  save([M_.dname filesep 'Output' filesep 'AR2edeir_results.mat'], 'oo_recursive_', '-append');
 end
 if ~isempty(lastwarn)
   disp('Note: warning(s) encountered in MATLAB/Octave code')

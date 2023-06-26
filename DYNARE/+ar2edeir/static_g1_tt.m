@@ -15,7 +15,7 @@ function T = static_g1_tt(T, y, x, params)
 
 assert(length(T) >= 8);
 
-T = ar2edeir.static_resid_tt(T, y, x, params);
+T = AR2edeir.static_resid_tt(T, y, x, params);
 
 T(7) = getPowerDeriv(T(1),(-params(1)),1);
 T(8) = T(7)*(-(1/params(5)*getPowerDeriv(y(4),params(5),1)));

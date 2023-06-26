@@ -16,7 +16,7 @@ function g1 = static_g1(T, y, x, params, T_flag)
 %
 
 if T_flag
-    T = ar2edeir.static_g1_tt(T, y, x, params);
+    T = AR2edeir.static_g1_tt(T, y, x, params);
 end
 g1 = zeros(16, 16);
 g1(1,6)=(-(y(13)*params(12)));

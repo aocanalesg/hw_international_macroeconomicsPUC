@@ -5,9 +5,9 @@ function [residual, g1, g2, g3] = dynamic_resid_g1_g2_g3(T, y, x, params, steady
 %
 
     if T_flag
-        T = ar2edeir.dynamic_g3_tt(T, y, x, params, steady_state, it_);
+        T = AR2edeir.dynamic_g3_tt(T, y, x, params, steady_state, it_);
     end
-    [residual, g1, g2] = ar2edeir.dynamic_resid_g1_g2(T, y, x, params, steady_state, it_, false);
-    g3       = ar2edeir.dynamic_g3(T, y, x, params, steady_state, it_, false);
+    [residual, g1, g2] = AR2edeir.dynamic_resid_g1_g2(T, y, x, params, steady_state, it_, false);
+    g3       = AR2edeir.dynamic_g3(T, y, x, params, steady_state, it_, false);
 
 end

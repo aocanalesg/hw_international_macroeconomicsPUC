@@ -20,7 +20,7 @@ function T = dynamic_g3_tt(T, y, x, params, steady_state, it_)
 
 assert(length(T) >= 9);
 
-T = ar2edeir.dynamic_g2_tt(T, y, x, params, steady_state, it_);
+T = AR2edeir.dynamic_g2_tt(T, y, x, params, steady_state, it_);
 
 
 end

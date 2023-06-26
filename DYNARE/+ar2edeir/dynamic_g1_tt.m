@@ -20,7 +20,7 @@ function T = dynamic_g1_tt(T, y, x, params, steady_state, it_)
 
 assert(length(T) >= 9);
 
-T = ar2edeir.dynamic_resid_tt(T, y, x, params, steady_state, it_);
+T = AR2edeir.dynamic_resid_tt(T, y, x, params, steady_state, it_);
 
 T(8) = getPowerDeriv(T(1),(-params(1)),1);
 T(9) = T(8)*(-(1/params(5)*getPowerDeriv(y(9),params(5),1)));

@@ -5,9 +5,9 @@ function [residual, g1] = dynamic_resid_g1(T, y, x, params, steady_state, it_, T
 %
 
     if T_flag
-        T = ar2edeir.dynamic_g1_tt(T, y, x, params, steady_state, it_);
+        T = AR2edeir.dynamic_g1_tt(T, y, x, params, steady_state, it_);
     end
-    residual = ar2edeir.dynamic_resid(T, y, x, params, steady_state, it_, false);
-    g1       = ar2edeir.dynamic_g1(T, y, x, params, steady_state, it_, false);
+    residual = AR2edeir.dynamic_resid(T, y, x, params, steady_state, it_, false);
+    g1       = AR2edeir.dynamic_g1(T, y, x, params, steady_state, it_, false);
 
 end

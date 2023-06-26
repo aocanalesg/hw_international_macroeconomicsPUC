@@ -15,7 +15,7 @@ function T = static_g3_tt(T, y, x, params)
 
 assert(length(T) >= 8);
 
-T = ar2edeir.static_g2_tt(T, y, x, params);
+T = AR2edeir.static_g2_tt(T, y, x, params);
 
 
 end

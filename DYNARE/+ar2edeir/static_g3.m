@@ -16,7 +16,7 @@ function g3 = static_g3(T, y, x, params, T_flag)
 %
 
 if T_flag
-    T = ar2edeir.static_g3_tt(T, y, x, params);
+    T = AR2edeir.static_g3_tt(T, y, x, params);
 end
 g3 = sparse([],[],[],16,4096);
 

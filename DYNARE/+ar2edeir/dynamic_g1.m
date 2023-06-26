@@ -20,7 +20,7 @@ function g1 = dynamic_g1(T, y, x, params, steady_state, it_, T_flag)
 %
 
 if T_flag
-    T = ar2edeir.dynamic_g1_tt(T, y, x, params, steady_state, it_);
+    T = AR2edeir.dynamic_g1_tt(T, y, x, params, steady_state, it_);
 end
 g1 = zeros(16, 25);
 g1(1,11)=(-(params(12)*y(24)));
