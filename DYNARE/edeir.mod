@@ -19,7 +19,7 @@ alpha   = 0.32;              %F(k,h) = k^ALFA h^(1-ALFA)
 omega   = 1.455;             %Frisch ela st. from Mendoza 1991
 dbar    = 0.7442;            %debt
 beta    = 1/(1+rstar);
-sigma_eps = 3.08;
+sigma_eps = 1;
 
 %parameters to be matched
 psi     = 0.000742;          %debt elasticity of interest rate 

@@ -16,7 +16,7 @@ function residual = static_resid(T, y, x, params, T_flag)
 %
 
 if T_flag
-    T = ar2edeir.static_resid_tt(T, y, x, params);
+    T = AR2edeir.static_resid_tt(T, y, x, params);
 end
 residual = zeros(16, 1);
 lhs = y(13);

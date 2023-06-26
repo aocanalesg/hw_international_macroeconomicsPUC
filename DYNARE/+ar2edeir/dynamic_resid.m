@@ -20,7 +20,7 @@ function residual = dynamic_resid(T, y, x, params, steady_state, it_, T_flag)
 %
 
 if T_flag
-    T = ar2edeir.dynamic_resid_tt(T, y, x, params, steady_state, it_);
+    T = AR2edeir.dynamic_resid_tt(T, y, x, params, steady_state, it_);
 end
 residual = zeros(16, 1);
 lhs = y(18);

@@ -9,7 +9,7 @@ predetermined_variables k;
 
 varexo eps;
 
-parameters sigma delta rstar alpha omega dbar psi phi rho0 rho1 etatilde
+parameters sigma delta rstar alpha omega dbar psi phi rho0 rho1 sigmae
            beta sigma_eps;
 
 sigma   = 2;                 %MENDOZA
@@ -22,9 +22,10 @@ psi     = 0.000742;          %debt elasticity of interest rate
 phi     = 0.028;             %capital adjustment cost
 rho0   = 1.42;              %persistence of TFP shock
 rho1   = -0.43;                 %persitence of TFP shock lag 2               
-etatilde= 0.0129;            %sd of innovation to TFP shock
+sigmae= 0.0129;            %sd of innovation to TFP shock
 beta    = 1/(1+rstar);
-sigma_eps = 3.08;
+sigma_eps = 1;
+
 
 model;
 
@@ -73,7 +74,7 @@ model;
     log(cay) = log(ca)/y;
 
 % Productivy
-    log(A) = rho0*log(A(-1)) + rho1*log(A(-2))+ etatilde*eps;
+    log(A) = rho0*log(A(-1)) + rho1*log(A(-2))+ sigmae*eps;
     
 end;
 
@@ -102,4 +103,30 @@ var eps=sigma_eps^2;
 end;
 
 stoch_simul(order=1,irf=10,loglinear,contemporaneous_correlation) y c i h tby cay ; 
-           
+
+
+%%%%%% MATCHING
+
+x_start=[sigmae]; %use calibration as starting point, pongo los parametros que quiero calibrar, el orden no es importante
+%make sure Dynare does not print out stuff during runs
+options_.nofunctions=1;
+options_.nograph=1;
+options_.verbosity=0;
+%set noprint option to suppress error messages within optimizer
+options_.noprint=1;     %no-print the results
+
+% set csminwel options
+H0   = 0.05*eye(length(x_start)); %Initial Hessian, GUESS INICIAL
+crit = 1e-8;                      %Tolerance
+nit  = 1000;                      %Number of iterations
+
+target=[3.08];%los parametros que yo quiero machear OJO AqUI
+
+[fhat,x_opt_hat] = csminwel(@ar2moment_objective,x_start,H0,[],crit,nit,target,oo_, M_,options_); %x_opt_hat sera el nuevo vector de parametros calibrados
+
+set_param_value('sigmae',x_opt_hat(1));    %we get the new rho which minimize the distance D
+
+
+options_.noprint=0;                     %print the results
+stoch_simul(order=1,loglinear,irf=20);
+

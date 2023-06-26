@@ -20,7 +20,7 @@ function g2 = dynamic_g2(T, y, x, params, steady_state, it_, T_flag)
 %
 
 if T_flag
-    T = ar2edeir.dynamic_g2_tt(T, y, x, params, steady_state, it_);
+    T = AR2edeir.dynamic_g2_tt(T, y, x, params, steady_state, it_);
 end
 g2 = sparse([],[],[],16,625);
 
