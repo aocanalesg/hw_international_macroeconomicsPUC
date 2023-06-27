@@ -90,11 +90,8 @@ lambda =     1.9332; f =            2.5072510
 lambda =     3.7372; f =            6.5447914
 lambda =     2.5164; f =            3.1966025
 Norm of dx    0.35136
-
 ih =
-
      1
-
 ----
 Improvement on iteration 1 =        3.888081644
 -----------------
@@ -105,11 +102,8 @@ Predicted improvement:        0.004444609
 lambda =          1; f =            2.5128077
 lambda =    0.33333; f =            2.5058987
 Norm of dx   0.028639
-
 ih =
-
      1
-
 ----
 Improvement on iteration 2 =        0.001352272
 -----------------
@@ -124,11 +118,8 @@ lambda =     7.2247; f =            2.5025991
 lambda =     13.967; f =            2.5005442
 lambda =         27; f =            2.5000362
 Norm of dx  0.0051696
-
 ih =
-
      1
-
 ----
 Improvement on iteration 3 =        0.005862516
 -----------------
@@ -160,16 +151,10 @@ lambda =    0.33333; f =            2.7643482
 lambda =    0.11111; f =            2.5125216
 lambda =   0.037037; f =            2.4936406
 Norm of dx    0.46411
-
 badg2 =
-
      0
-
-
 ih =
-
      2
-
 ----
 Improvement on iteration 4 =        0.006395583
 -----------------
@@ -208,14 +193,11 @@ lambda =     1.2558; f =            2.4728019
 lambda =     1.2698; f =     10000001.2586129
 Norm of dx    0.25347
 Cliff again.  Try traversing
-
 gcliff =
-
     0.0131
     0.5162
          0
          0
-
 Predicted improvement:        0.133313102
 lambda =          1; f =            5.5286256
 lambda =    0.33333; f =            2.9879106
@@ -237,16 +219,10 @@ lambda = 2.3231e-08; f =            2.4936406
 lambda = 7.7435e-09; f =            2.4936406
 lambda = 2.5812e-09; f =            2.4936406
 Norm of dx    0.51636
-
 badg3 =
-
      0
-
-
 ih =
-
      3
-
 ----
 Improvement on iteration 5 =        0.000215781
 smallest step still improving too slow
@@ -276,16 +252,10 @@ Predicted improvement:        0.015893023
 lambda =          1; f =     10000001.2197264
 lambda =    0.33333; f =            2.4864176
 Norm of dx    0.34088
-
 badg2 =
-
      0
-
-
 ih =
-
      2
-
 ----
 Improvement on iteration 6 =        0.007007202
 -----------------
@@ -318,16 +288,10 @@ lambda =    0.11111; f =            2.5597435
 lambda =   0.037037; f =            2.4863344
 lambda =   0.012346; f =            2.4833901
 Norm of dx    0.64675
-
 badg2 =
-
      0
-
-
 ih =
-
      2
-
 ----
 Improvement on iteration 7 =        0.003027522
 -----------------
@@ -358,16 +322,10 @@ lambda =    0.33333; f =            2.6476385
 lambda =    0.11111; f =            2.4904679
 lambda =   0.037037; f =            2.4812549
 Norm of dx    0.63235
-
 badg2 =
-
      0
-
-
 ih =
-
      2
-
 ----
 Improvement on iteration 8 =        0.002135203
 -----------------
@@ -399,16 +357,10 @@ lambda =    0.33333; f =     10000000.9854511
 lambda =    0.11111; f =            2.4855456
 lambda =   0.037037; f =            2.4777803
 Norm of dx     0.9941
-
 badg2 =
-
      0
-
-
 ih =
-
      2
-
 ----
 Improvement on iteration 9 =        0.003474538
 -----------------
@@ -443,16 +395,10 @@ lambda =    0.33333; f =     10000001.1466124
 lambda =    0.11111; f =            2.4837881
 lambda =   0.037037; f =            2.4755289
 Norm of dx    0.64839
-
 badg2 =
-
      0
-
-
 ih =
-
      2
-
 ----
 Improvement on iteration 10 =        0.002251415
 -----------------
@@ -486,16 +432,10 @@ lambda =    0.33333; f =     10000000.6942378
 lambda =    0.11111; f =     10000001.2320089
 lambda =   0.037037; f =            2.4728370
 Norm of dx     1.3316
-
 badg2 =
-
      0
-
-
 ih =
-
      2
-
 ----
 Improvement on iteration 11 =        0.002691966
 -----------------
@@ -526,16 +466,10 @@ lambda =          1; f =     10000000.5784189
 lambda =    0.33333; f =     10000001.1092691
 lambda =    0.11111; f =            2.4680258
 Norm of dx    0.47589
-
 badg2 =
-
      0
-
-
 ih =
-
      2
-
 ----
 Improvement on iteration 12 =        0.004811176
 -----------------
@@ -570,16 +504,10 @@ lambda =    0.11111; f =     10000000.8734488
 lambda =   0.037037; f =     10000001.1649801
 lambda =   0.012346; f =            2.4632758
 Norm of dx      2.216
-
 badg2 =
-
      0
-
-
 ih =
-
      2
-
 ----
 Improvement on iteration 13 =        0.004750019
 -----------------
@@ -625,14 +553,11 @@ lambda =   0.013951; f =     10000001.2463206
 lambda =   0.013798; f =            2.4618966
 Norm of dx    0.89095
 Cliff again.  Try traversing
-
 gcliff =
-
     0.0062
     0.1759
          0
          0
-
 Predicted improvement:        0.015493232
 lambda =          1; f =            3.2501054
 lambda =    0.33333; f =            2.5552022
@@ -641,16 +566,10 @@ lambda =   0.037037; f =            2.4631836
 lambda =   0.012346; f =            2.4629526
 lambda =   0.023866; f =            2.4629149
 Norm of dx    0.17603
-
 badg3 =
-
      0
-
-
 ih =
-
      3
-
 ----
 Improvement on iteration 14 =        0.000360887
 -----------------
@@ -700,29 +619,20 @@ lambda =    0.01115; f =            2.4617820
 lambda =   0.011274; f =     10000001.2449147
 Norm of dx    0.98675
 Cliff again.  Try traversing
-
 gcliff =
-
     0.0006
    -0.0132
          0
          0
-
 Predicted improvement:        0.000086872
 lambda =          1; f =            2.4679905
 lambda =    0.33333; f =            2.4633183
 lambda =    0.11111; f =            2.4629064
 Norm of dx   0.013181
-
 badg3 =
-
      0
-
-
 ih =
-
      3
-
 ----
 Improvement on iteration 15 =        0.000008519
 -----------------
@@ -769,14 +679,11 @@ lambda =  0.0086645; f =            2.4619019
 lambda =  0.0087609; f =     10000001.2463505
 Norm of dx     1.2633
 Cliff again.  Try traversing
-
 gcliff =
-
    -0.0067
     0.0829
          0
          0
-
 Predicted improvement:        0.003457866
 lambda =          1; f =            2.6815125
 lambda =    0.33333; f =            2.4877998
@@ -785,16 +692,10 @@ lambda =   0.037037; f =            2.4631082
 lambda =   0.012346; f =            2.4629015
 lambda =  0.0041152; f =            2.4628967
 Norm of dx   0.083161
-
 badg3 =
-
      0
-
-
 ih =
-
      3
-
 ----
 Improvement on iteration 16 =        0.000009630
 -----------------
@@ -843,14 +744,11 @@ lambda =  0.0085761; f =            2.4619154
 lambda =  0.0086716; f =     10000001.2464514
 Norm of dx     1.2639
 Cliff again.  Try traversing
-
 gcliff =
-
    -0.0005
     0.0800
          0
          0
-
 Predicted improvement:        0.003199275
 lambda =          1; f =            2.6573271
 lambda =    0.33333; f =            2.4849896
@@ -872,16 +770,10 @@ lambda = 2.3231e-08; f =            2.4628967
 lambda = 7.7435e-09; f =            2.4628967
 lambda = 2.5812e-09; f =            2.4628967
 Norm of dx   0.079991
-
 badg3 =
-
      0
-
-
 ih =
-
      3
-
 ----
 Improvement on iteration 17 =        0.000004301
 smallest step still improving too slow
@@ -931,14 +823,11 @@ lambda =  0.0069468; f =            2.4619607
 lambda =  0.0070241; f =     10000001.2468851
 Norm of dx     1.5281
 Cliff again.  Try traversing
-
 gcliff =
-
     0.0019
     0.0801
          0
          0
-
 Predicted improvement:        0.003209625
 lambda =          1; f =            2.6549204
 lambda =    0.33333; f =            2.4849502
@@ -960,16 +849,10 @@ lambda = 2.3231e-08; f =            2.4628924
 lambda = 7.7435e-09; f =            2.4628924
 lambda = 2.5812e-09; f =            2.4628924
 Norm of dx    0.08012
-
 badg3 =
-
      0
-
-
 ih =
-
      3
-
 ----
 Improvement on iteration 18 =        0.000000233
 smallest step still improving too slow
@@ -1019,14 +902,11 @@ lambda =  0.0077749; f =     10000001.2464783
 lambda =  0.0076893; f =            2.4619099
 Norm of dx     1.3915
 Cliff again.  Try traversing
-
 gcliff =
-
     0.0008
     0.0652
          0
          0
-
 Predicted improvement:        0.002126713
 lambda =          1; f =            2.5934288
 lambda =    0.33333; f =            2.4778316
@@ -1047,31 +927,19 @@ lambda = 6.9692e-08; f =            2.4628922
 lambda = 2.3231e-08; f =            2.4628922
 lambda = 7.7435e-09; f =            2.4628922
 lambda = 2.5812e-09; f =            2.4628922
-
 lambda =
-
   -6.2723e-07
-
 lambda = -6.2723e-07; f =            2.4628922
 Norm of dx   0.065218
-
 badg3 =
-
      0
-
-
 ih =
-
      3
-
 ----
 Improvement on iteration 19 =        0.000000000
 improvement < crit termination
-
 x_opt_hat =
-
     1.0104    0.4986    0.0280    0.0007
-
 
 MODEL SUMMARY
 
@@ -1145,4 +1013,31 @@ log(cay)    -0.0125  -0.0068  -0.0041  -0.0027  -0.0021
 log(la)      0.9967   0.9935   0.9902   0.9869   0.9837
 log(Uc)      0.9967   0.9935   0.9902   0.9869   0.9837
 log(Uh)      0.9838   0.9805   0.9773   0.9741   0.9709
-Total computing time : 0h00m44s
+prob5_incb =
+    2.8604    0.0080    1.0000
+    2.2000    0.3192    0.8811
+    0.3717    0.9085    0.4479
+    1.9659    0.0080    1.0000
+    1.5638    0.1922    0.8367
+    1.4244   -0.0125    0.9937
+prob5_incb =
+    2.8604    0.0080    1.0000
+    2.2000    0.3192    0.8811
+    0.3717    0.9085    0.4479
+    1.9659    0.0080    1.0000
+    1.5638    0.1922    0.8367
+    1.4244   -0.0125    0.9937
+prob5_incb =
+    2.8604    0.0080    1.0000
+    2.2000    0.3192    0.8811
+    0.3717    0.9085    0.4479
+    1.9659    0.0080    1.0000
+    1.5638    0.1922    0.8367
+    1.4244   -0.0125    0.9937
+prob5_incisod =
+    1.0084    0.9778
+    2.8604    1.5198
+prob5_incisod =
+    1.0084    0.9778
+    2.8604    1.5198
+Total computing time : 0h00m24s

@@ -1,0 +1,84 @@
+Starting Dynare (version 5.4).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ...
+Found 15 equation(s).
+Evaluating expressions...done
+Computing static model derivatives (order 1).
+Computing dynamic model derivatives (order 1).
+Processing outputs ...
+done
+Preprocessing completed.
+
+
+STEADY-STATE RESULTS:
+
+y   		 1.48649
+c   		 1.11695
+i   		 0.339769
+h   		 1.00742
+k   		 3.39769
+r   		 0.04
+d   		 0.7442
+A   		 1
+tby 		 1.02023
+tb  		 1.03022
+ca  		 1
+cay 		 1
+la  		 5.60908
+Uc  		 5.60908
+Uh  		 5.62797
+
+MODEL SUMMARY
+
+  Number of variables:         15
+  Number of stochastic shocks: 1
+  Number of state variables:   4
+  Number of jumpers:           3
+  Number of static variables:  9
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables         eps
+eps          1.000000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   log(y)               log(c)               log(i)               log(h)             log(tby)             log(cay)
+Constant                         0.396416             0.110602            -1.079491             0.007391             0.020026                    0
+log(r(-1))                              0            -0.001122            -0.001886                    0             0.001274            -0.018751
+log(d(-1))                              0            -0.029177            -0.049030                    0             0.033131             0.013105
+log(A(-1))                       0.788516             0.529381             2.822848             0.541935            -0.270275            -0.254484
+log(k(-1))                       0.600774             0.506431            -3.996887             0.412903             1.121784             1.133815
+eps                              0.024219             0.016260             0.086702             0.016645            -0.008301            -0.007816
+
+
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+log(y)         0.3964     0.0308     0.0010
+log(c)         0.1106     0.0271     0.0007
+log(i)        -1.0795     0.0904     0.0082
+log(h)         0.0074     0.0212     0.0004
+log(tby)       0.0200     0.0178     0.0003
+log(cay)       0.0000     0.0145     0.0002
+
+
+
+MATRIX OF CORRELATIONS
+Variables      log(y)    log(c)    log(i)    log(h)  log(tby)  log(cay)
+log(y)         1.0000    0.8440    0.6688    1.0000   -0.0435    0.0503
+log(c)         0.8440    1.0000    0.5177    0.8440   -0.3114    0.0654
+log(i)         0.6688    0.5177    1.0000    0.6688   -0.6178   -0.7068
+log(h)         1.0000    0.8440    0.6688    1.0000   -0.0435    0.0503
+log(tby)      -0.0435   -0.3114   -0.6178   -0.0435    1.0000    0.8318
+log(cay)       0.0503    0.0654   -0.7068    0.0503    0.8318    1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION
+Order             1        2        3        4        5
+log(y)       0.6170   0.3603   0.2066   0.1201   0.0733
+log(c)       0.7822   0.6367   0.5493   0.4996   0.4721
+log(i)       0.0686  -0.1379  -0.1363  -0.0935  -0.0553
+log(h)       0.6170   0.3603   0.2066   0.1201   0.0733
+log(tby)     0.5086   0.3484   0.3028   0.2938   0.2945
+log(cay)     0.3220   0.0875   0.0130  -0.0067  -0.0096
+Total computing time : 0h00m04s

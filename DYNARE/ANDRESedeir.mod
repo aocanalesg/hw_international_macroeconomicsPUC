@@ -100,4 +100,4 @@ var eps=sigma_eps^2;
 end;
 
 stoch_simul(order=1,irf=10,loglinear,contemporaneous_correlation) y c i h tby cay ; 
-           
+     

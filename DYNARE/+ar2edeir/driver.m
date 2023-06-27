@@ -296,6 +296,8 @@ options_.loglinear = true;
 options_.order = 1;
 var_list_ = {};
 [info, oo_, options_, M_] = stoch_simul(M_, options_, oo_, var_list_);
+results_prob2(:,1) = [sqrt(oo_.var(1,1)) sqrt(oo_.var(2,2)) sqrt(oo_.var(3,3)) sqrt(oo_.var(4,4)) sqrt(oo_.var(9,9)) sqrt(oo_.var(12,12))]'
+results_prob2(:,2)=[oo_.autocorr{1,1}(1,1) oo_.autocorr{1,1}(2,2) oo_.autocorr{1,1}(3,3) oo_.autocorr{1,1}(4,4) oo_.autocorr{1,1}(9,9) oo_.autocorr{1,1}(12,12)]'
 
 
 oo_.time = toc(tic0);

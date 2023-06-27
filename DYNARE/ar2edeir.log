@@ -93,11 +93,8 @@ lambda =    0.33333; f =           29.5882293
 lambda =    0.11111; f =            8.1868434
 lambda =   0.037037; f =            1.0530482
 Norm of dx     2.1944
-
 ih =
-
      1
-
 ----
 Improvement on iteration 1 =        1.460801314
 -----------------
@@ -111,11 +108,8 @@ lambda =    0.64439; f =            0.0961956
 lambda =     1.2457; f =            1.1686492
 lambda =     0.8388; f =            0.4429162
 Norm of dx   0.040637
-
 ih =
-
      1
-
 ----
 Improvement on iteration 2 =        0.956852580
 -----------------
@@ -128,11 +122,8 @@ lambda =    0.33333; f =            0.0953450
 lambda =    0.11111; f =            0.0323487
 lambda =     0.2148; f =            0.0272320
 Norm of dx   0.013093
-
 ih =
-
      1
-
 ----
 Improvement on iteration 3 =        0.068963534
 -----------------
@@ -144,15 +135,12 @@ lambda =          1; f =            0.0344818
 lambda =    0.33333; f =            0.0066608
 lambda =    0.64439; f =            0.0125360
 Norm of dx  0.0014062
-
 ih =
-
      1
-
 bfgs update failed.
-|dg| = 3.6664e-11|dx| = 0.00046873
-dg'*dx = 1.7185e-14
-|H*dg| = 1.38e-30
+|dg| = 1.1001e-10|dx| = 0.00046873
+dg'*dx = 5.1563e-14
+|H*dg| = 1.2423e-29
 ----
 Improvement on iteration 4 =        0.020571272
 -----------------
@@ -166,11 +154,8 @@ lambda =    0.11111; f =            0.0001963
 lambda =     0.2148; f =            0.0065952
 lambda =    0.14463; f =            0.0022651
 Norm of dx  0.0014062
-
 ih =
-
      1
-
 ----
 Improvement on iteration 5 =        0.006464464
 -----------------
@@ -186,11 +171,8 @@ lambda =   0.071599; f =            0.0000123
 lambda =    0.13841; f =            0.0002069
 lambda =     0.0932; f =            0.0000752
 Norm of dx  6.638e-05
-
 ih =
-
      1
-
 ----
 Improvement on iteration 6 =        0.000184039
 -----------------
@@ -210,11 +192,8 @@ lambda =     1.9279; f =            0.0000114
 lambda =     1.9881; f =            0.0000121
 lambda =     1.9518; f =            0.0000117
 Norm of dx 2.7967e-07
-
 ih =
-
      1
-
 ----
 Improvement on iteration 7 =        0.000012274
 warning: possible inaccuracy in H matrix
@@ -242,13 +221,10 @@ lambda = 6.9692e-08; f =            0.0000000
 lambda = 2.3231e-08; f =            0.0000000
 lambda = 7.7435e-09; f =            0.0000000
 lambda = 2.5812e-09; f =            0.0000000
-
 lambda =
-
   -6.2723e-07
-
 lambda = -6.2723e-07; f =            0.0000000
-Norm of dx 1.0119e-17
+Norm of dx 2.5297e-17
 ih = 1
 ----
 Improvement on iteration 8 =        0.000000000
@@ -326,4 +302,18 @@ log(cay)    0.5557  0.3044  0.1671  0.0939  0.0554
 log(la)     0.9980  0.9959  0.9939  0.9918  0.9898
 log(Uc)     0.9980  0.9959  0.9939  0.9918  0.9898
 log(Uh)     0.9979  0.9963  0.9949  0.9935  0.9922
-Total computing time : 0h00m03s
+results_prob2 =
+    3.0800
+    3.3863
+    4.1857
+    2.1168
+    1.1359
+    0.7168
+results_prob2 =
+    3.0800    0.9960
+    3.3863    0.9974
+    4.1857    0.7901
+    2.1168    0.9960
+    1.1359    0.8157
+    0.7168    0.5557
+Total computing time : 0h00m11s

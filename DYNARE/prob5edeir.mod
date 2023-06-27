@@ -134,21 +134,16 @@ x_opt_hat
 options_.noprint=0;                     %print the results
 stoch_simul(order=1,loglinear,irf=20);
 
-%%%%%%%%%%crear tabla inciso b
-%%%%%% std. dev
-prob5_incb(:,1) = [oo_.var{1,1}(1,1) oo_.var{1,1}(2,2) oo_.var{1,1}(3,3)  oo_.var{1,1}(4,4) oo_.var{1,1}(9,9) oo_.var{1,1}(12,12)]';
+%%%%%%%%%%crear tabla inciso b %%%%
+%%%%%% std. dev %% [y c i h tby cay]'
+prob5_incb(:,1) = [sqrt(oo_.var(1,1)) sqrt(oo_.var(2,2)) sqrt(oo_.var(3,3))  sqrt(oo_.var(4,4)) sqrt(oo_.var(9,9)) sqrt(oo_.var(12,12))]'
 
-%%%%% autocorrelacion
-prob5_incb(1,2) = oo_.autocorr{1,1}(1,1);%y
-prob5_incb(2,2) = oo_.autocorr{1,1}(2,2);%c
-prob5_incb(3,2) = oo_.autocorr{1,1}(3,3);%i
-prob5_incb(4,2) = oo_.autocorr{1,1}(4,4);%h
-prob5_incb(5,2) = oo_.autocorr{1,1}(9,9);%tby
-prob5_incb(6,2) = oo_.autocorr{1,1}(12,12);%cay
-%%%% correlacion con el producto
-prob5_incb(1,3) = oo_.contemporaneous_correlation{1,1}(1,1);%y
-prob5_incb(2,3) = oo_.contemporaneous_correlation{1,1}(2,1);%c
-prob5_incb(3,3) = oo_.contemporaneous_correlation{1,1}(3,1);%i
-prob5_incb(4,3) = oo_.contemporaneous_correlation{1,1}(4,1);%h
-prob5_incb(5,3) = oo_.contemporaneuos_correlation{1,1}(9,1);%tby
-prob5_incb(6,3) = oo_.contemporaneuos_correlation{1,1}(12,1);%cay
+%%%%% autocorrelacion %% [y c i h tby cay]'
+prob5_incb(:,2) = [oo_.autocorr{1,1}(1,1) oo_.autocorr{1,1}(2,2) oo_.autocorr{1,1}(3,3) oo_.autocorr{1,1}(4,4) oo_.autocorr{1,1}(9,9) oo_.autocorr{1,1}(12,12)]'
+
+%%%% correlacion con el producto %% [y c i h tby cay]'
+prob5_incb(:,3) = [oo_.contemporaneous_correlation(1,1) oo_.contemporaneous_correlation(2,1) oo_.contemporaneous_correlation(3,1) oo_.contemporaneous_correlation(4,1) oo_.contemporaneous_correlation(9,1) oo_.contemporaneous_correlation(12,1)]'
+
+%%%%% inciso d. %%%%
+prob5_incisod(2, :) = [sqrt(oo_.var(1,1)) sqrt(oo_.var(8,8))]
+prob5_incisod(1, :) = [sqrt(1.0169) sqrt(0.9561)]
